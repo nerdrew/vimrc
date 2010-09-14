@@ -27,7 +27,7 @@ set backspace=indent,eol,start
 set listchars=tab:>\ ,trail:·,eol:$,nbsp:·,extends:#
 
 " Allows per plugin directories, needs to be before `filetype plugin indent on'
-call pathogen#helptags()
+call pathogen#helptags_all_bundles()
 call pathogen#runtime_append_all_bundles()
 
 " % will match more than just brackets

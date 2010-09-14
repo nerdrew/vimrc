@@ -129,4 +129,12 @@ function! pathogen#helptags() " {{{1
   endfor
 endfunction " }}}1
 
+function! pathogen#helptags_all_bundles() " {{{1
+  for dir in pathogen#split(&rtp)
+    if dir[0 : strlen($VIM)-1] !=# $VIM && dir =~# "bundle" && isdirectory(dir.'/doc') && (!filereadable(dir.'/doc/tags') || filewritable(dir.'/doc/tags'))
+      helptags `=dir.'/doc'`
+    endif
+  endfor
+endfunction " }}}1
+
 " vim:set ft=vim ts=8 sw=2 sts=2:
