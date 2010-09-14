@@ -1,0 +1,18 @@
+[submodule "vim/bundle/nerdtree"]
+	path = vim/bundle/nerdtree
+	url = http://github.com/scrooloose/nerdtree.git
+[submodule "vim/bundle/fuzzyfinder_textmate"]
+	path = vim/bundle/fuzzyfinder_textmate
+	url = http://github.com/namedpipe/fuzzyfinder_textmate.git
+[submodule "vim/bundle/surround"]
+	path = vim/bundle/surround
+	url = http://github.com/tpope/vim-surround.git
+[submodule "vim/bundle/rails"]
+	path = vim/bundle/rails
+	url = http://github.com/tpope/vim-rails.git
+[submodule "vim/bundle/ruby"]
+	path = vim/bundle/ruby
+	url = git@github.com:nerdrew/vim-ruby.git
+[submodule "vim/bundle/snipmate"]
+	path = vim/bundle/snipmate
+	url = git@github.com:nerdrew/snipmate.vim.git
