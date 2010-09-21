@@ -1,4 +1,4 @@
 .*
 !.gitignore
 bundle/*/doc/tags
-doc/tags
+doc

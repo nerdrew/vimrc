@@ -25,6 +25,7 @@ set history=1000
 set ruler
 set backspace=indent,eol,start
 set listchars=tab:>\ ,trail:·,eol:$,nbsp:·,extends:#
+" set relativenumber " shows relative line numbers
 
 " Allows per plugin directories, needs to be before `filetype plugin indent on'
 " call pathogen#helptags_all_bundles()
@@ -62,11 +63,25 @@ endif
 """""""""""""""""""""""""""""""""
 
 " Hide search highlighting when redrawing screen
-noremap <silent> <c-l> :nohls<cr><c-l>
+nnoremap <leader><space> :nohls<cr>
+
+" Sane regex
+nnoremap / /\v
+vnoremap / /\v
+
+" j and k should navigate screen-wise, not file wise
+nnoremap j gj
+nnoremap k gk
 
 " Speed up scrolling with ^e,^y
 nnoremap <C-e> 3<C-e>
 nnoremap <C-y> 3<C-y>
+
+" Window navigating
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
 
 " The following will make whitespace visible when requested: 
 nmap <silent> <leader>l :set nolist!<CR>
