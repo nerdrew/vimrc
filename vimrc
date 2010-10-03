@@ -58,6 +58,12 @@ if exists('+ballooneval')
   set noballooneval
 endif
 
+" hide toolbar
+if has("gui_running")
+  set guioptions-=T
+endif
+
+
 """""""""""""""""""""""""""""""""
 " Keyboard Re-mappings
 """""""""""""""""""""""""""""""""
