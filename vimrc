@@ -108,10 +108,10 @@ vmap <D-]> >gv
 :cnoremap <Esc>f <S-Right>
 
 " From http://github.com/namedpipe/fuzzyfinder_textmate
-map <leader>f :FuzzyFinderTextMate<CR>
-map <leader>t :TlistToggle<CR>
-map <leader>n :NERDTreeToggle<CR>
-
+nnoremap <leader>f :FuzzyFinderTextMate<CR>
+nnoremap <leader>t :TlistToggle<CR>
+nnoremap <leader>n :NERDTreeToggle<CR>
+nnoremap <leader>b :TMiniBufExplorer<CR>
 
 
 
