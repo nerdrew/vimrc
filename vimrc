@@ -114,6 +114,8 @@ nnoremap <leader>n :NERDTreeToggle<CR>
 nnoremap <leader>b :TMiniBufExplorer<CR>
 
 
+" Plugin options
+let g:miniBufExplorerMoreThanOne=7     " don't open miniBufExplorer until there are many buffers
 
 " From http://vim.wikia.com/wiki/Capture_ex_command_output
 " Captures ex command and puts it in a new tab
