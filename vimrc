@@ -86,14 +86,6 @@ nnoremap <C-l> <C-w>l
 " The following will make whitespace visible when requested: 
 nmap <silent> <leader>l :set nolist!<CR>
 
-" Hide MyProjects at first
-let g:myprojects_auto_open = 0
-
-" Fix sql keybindings
-let g:ftplugin_sql_omni_key_right = '<C-Right>'
-let g:ftplugin_sql_omni_key_left  = '<C-Left>'
-"let g:omni_sql_no_default_maps = 1
-
 " From http://vimcasts.org/episodes/indentation-commands/
 nmap <D-[> <<
 nmap <D-]> >>
@@ -114,8 +106,22 @@ nnoremap <leader>n :NERDTreeToggle<CR>
 nnoremap <leader>b :TMiniBufExplorer<CR>
 
 
+"""""""""""""""""""""""""""""""""
 " Plugin options
-let g:miniBufExplorerMoreThanOne=7     " don't open miniBufExplorer until there are many buffers
+"""""""""""""""""""""""""""""""""
+
+" MiniBufferExplorer
+let g:miniBufExplorerMoreThanOne = 2     " don't open miniBufExplorer until there are many buffers
+let g:miniBufExplModSelTarget = 1
+
+" Fix sql keybindings
+let g:ftplugin_sql_omni_key_right = '<C-Right>'
+let g:ftplugin_sql_omni_key_left  = '<C-Left>'
+"let g:omni_sql_no_default_maps = 1
+
+" Hide MyProjects at first
+let g:myprojects_auto_open = 0
+
 
 " From http://vim.wikia.com/wiki/Capture_ex_command_output
 " Captures ex command and puts it in a new tab
