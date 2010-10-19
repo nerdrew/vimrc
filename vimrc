@@ -109,7 +109,7 @@ vmap <D-]> >gv
 nnoremap <leader>f :FuzzyFinderTextMate<CR>
 nnoremap <leader>t :TlistToggle<CR>
 nnoremap <leader>n :NERDTreeToggle<CR>
-nnoremap <leader>b :TMiniBufExplorer<CR>
+"nnoremap <leader>b :TMiniBufExplorer<CR>
 
 
 """""""""""""""""""""""""""""""""
@@ -117,9 +117,9 @@ nnoremap <leader>b :TMiniBufExplorer<CR>
 """""""""""""""""""""""""""""""""
 
 " MiniBufferExplorer
-let g:miniBufExplorerMoreThanOne = 2     " don't open miniBufExplorer until there are many buffers
-let g:miniBufExplModSelTarget = 1
-let g:miniBufExplMapCTabSwitchBufs = 1
+"let g:miniBufExplorerMoreThanOne = 20     " don't open miniBufExplorer until there are many buffers
+"let g:miniBufExplModSelTarget = 1
+"let g:miniBufExplMapCTabSwitchBufs = 1
 
 " Fix sql keybindings
 let g:ftplugin_sql_omni_key_right = '<C-Right>'
