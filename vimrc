@@ -90,7 +90,7 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
 " The following will make whitespace visible when requested: 
-nmap <silent> <leader>l :set nolist!<CR>
+nnoremap <leader>l :set nolist!<CR>
 
 " From http://vimcasts.org/episodes/indentation-commands/
 nmap <D-[> <<
