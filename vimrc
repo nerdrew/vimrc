@@ -63,6 +63,11 @@ if has("gui_running")
   set guioptions-=T
 endif
 
+" from http://www.linux.com/archive/feature/114138
+" save folds when closing, restore folds on open
+"au BufWinLeave * mkview
+"au BufWinEnter * silent loadview
+
 
 """""""""""""""""""""""""""""""""
 " Keyboard Re-mappings
@@ -106,9 +111,10 @@ vmap <D-]> >gv
 :cnoremap <Esc>f <S-Right>
 
 " From http://github.com/namedpipe/fuzzyfinder_textmate
-nnoremap <leader>f :FuzzyFinderTextMate<CR>
-nnoremap <leader>t :TlistToggle<CR>
-nnoremap <leader>n :NERDTreeToggle<CR>
+nnoremap <unique> <leader>f :FuzzyFinderTextMate<CR>
+nnoremap <unique> <leader>t :TlistToggle<CR>
+nnoremap <unique> <leader>n :NERDTreeToggle<CR>
+map <unique> <silent> <Leader>z <Plug>SimpleFold_Foldsearch
 "nnoremap <leader>b :TMiniBufExplorer<CR>
 
 
