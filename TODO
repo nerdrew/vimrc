@@ -1,0 +1,2 @@
+ * modeline prompting: if there is a modeline, prompt the user to load it.
+ * tabstop control function: easily set tabstop, softtabstop, and shiftwidth to the same value; noexpandtabs
