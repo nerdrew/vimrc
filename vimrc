@@ -5,7 +5,6 @@ set hlsearch        " highlight search terms
 set incsearch       " search as you type
 set ignorecase      " ignore case when searching
 set smartcase       " ignore case if search is all lowercase
-set cindent
 set number          " show line numbers
 set linebreak
 set tabstop=2
@@ -14,6 +13,7 @@ set shiftwidth=2
 "set smarttab        " insert tabs on start of line based on shiftwidth not tabstop
 set expandtab
 set guifont=Menlo:h12
+set cindent         " smart inent new lines: smartindent is a similar option that is less strict
 set autoindent
 set copyindent
 set showmatch       " show matching parentheses
@@ -73,9 +73,6 @@ endif
 " Keyboard Re-mappings
 """""""""""""""""""""""""""""""""
 
-" Hide search highlighting when redrawing screen
-nnoremap <leader><space> :nohls<cr>
-
 " Sane regex
 nnoremap / /\v
 vnoremap / /\v
@@ -83,6 +80,8 @@ vnoremap / /\v
 " j and k should navigate screen-wise, not file wise
 nnoremap j gj
 nnoremap k gk
+
+nnoremap Y y$
 
 " Speed up scrolling with ^e,^y
 nnoremap <C-e> 3<C-e>
@@ -93,6 +92,9 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
+
+" Hide search highlighting when redrawing screen
+nnoremap <leader><space> :nohls<cr>
 
 " The following will make whitespace visible when requested: 
 nnoremap <leader>l :set nolist!<CR>
@@ -122,10 +124,17 @@ map <unique> <silent> <Leader>z <Plug>SimpleFold_Foldsearch
 " Plugin options
 """""""""""""""""""""""""""""""""
 
+" repmo.vim - REMOVED
+"let g:repmo_mapmotions = ""
+
 " MiniBufferExplorer
 "let g:miniBufExplorerMoreThanOne = 20     " don't open miniBufExplorer until there are many buffers
 "let g:miniBufExplModSelTarget = 1
 "let g:miniBufExplMapCTabSwitchBufs = 1
+
+" detect indent
+let g:detectindent_preferred_expandtab = 1
+let g:detectindent_preferred_indent = 2
 
 " Fix sql keybindings
 let g:ftplugin_sql_omni_key_right = '<C-Right>'
@@ -147,6 +156,14 @@ function! TabMessage(cmd)
   set nomodified
 endfunction
 command! -nargs=+ -complete=command TabMessage call TabMessage(<q-args>)
+
+" Set ts sts sw = num
+function! Tabs(num)
+  let &tabstop = a:num
+  let &shiftwidth = a:num
+  let &softtabstop = a:num
+endfunction
+command! -nargs=1 Tabs call Tabs(<args>)
 
 " function! ShowSynStack()
 "   let s:syn_stack = ''

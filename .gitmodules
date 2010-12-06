@@ -28,3 +28,9 @@
 [submodule "vim/bundle/vim-fugitive.git"]
 	path = vim/bundle/vim-fugitive.git
 	url = http://github.com/tpope/vim-fugitive.git
+[submodule "vim/bundle/securemodelines.git"]
+	path = vim/bundle/securemodelines.git
+	url = https://github.com/ciaranm/securemodelines.git
+[submodule "vim/bundle/detectindent.git"]
+	path = vim/bundle/detectindent.git
+	url = https://github.com/ciaranm/detectindent.git
