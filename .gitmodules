@@ -1,36 +1,39 @@
-[submodule "vim/bundle/nerdtree"]
-	path = vim/bundle/nerdtree
-	url = http://github.com/scrooloose/nerdtree.git
-[submodule "vim/bundle/fuzzyfinder_textmate"]
-	path = vim/bundle/fuzzyfinder_textmate
-	url = http://github.com/namedpipe/fuzzyfinder_textmate.git
-[submodule "vim/bundle/surround"]
-	path = vim/bundle/surround
-	url = http://github.com/tpope/vim-surround.git
-[submodule "vim/bundle/rails"]
-	path = vim/bundle/rails
-	url = http://github.com/tpope/vim-rails.git
-[submodule "vim/bundle/ruby"]
-	path = vim/bundle/ruby
-	url = git@github.com:nerdrew/vim-ruby.git
-[submodule "vim/bundle/snipmate"]
-	path = vim/bundle/snipmate
-	url = git@github.com:nerdrew/snipmate.vim.git
-[submodule "vim/bundle/nerdcommenter"]
-	path = vim/bundle/nerdcommenter
-	url = http://github.com/scrooloose/nerdcommenter.git
-[submodule "vim/bundle/ack.vim"]
-	path = vim/bundle/ack.vim
-	url = http://github.com/mileszs/ack.vim.git
-[submodule "vim/bundle/repeat"]
-	path = vim/bundle/repeat
-	url = http://github.com/tpope/vim-repeat.git
-[submodule "vim/bundle/vim-fugitive.git"]
-	path = vim/bundle/vim-fugitive.git
-	url = http://github.com/tpope/vim-fugitive.git
 [submodule "vim/bundle/securemodelines.git"]
 	path = vim/bundle/securemodelines.git
 	url = https://github.com/ciaranm/securemodelines.git
 [submodule "vim/bundle/detectindent.git"]
 	path = vim/bundle/detectindent.git
 	url = https://github.com/ciaranm/detectindent.git
+[submodule "vim/bundle/xmledit.git"]
+	path = vim/bundle/xmledit.git
+	url = https://github.com/sukima/xmledit.git
+[submodule "vim/bundle/nerdtree.git"]
+	path = vim/bundle/nerdtree.git
+	url = http://github.com/scrooloose/nerdtree.git
+[submodule "vim/bundle/fuzzyfinder_textmate.git"]
+	path = vim/bundle/fuzzyfinder_textmate.git
+	url = http://github.com/namedpipe/fuzzyfinder_textmate.git
+[submodule "vim/bundle/rails.git"]
+	path = vim/bundle/rails.git
+	url = http://github.com/tpope/vim-rails.git
+[submodule "vim/bundle/nerdcommenter.git"]
+	path = vim/bundle/nerdcommenter.git
+	url = http://github.com/scrooloose/nerdcommenter.git
+[submodule "vim/bundle/repeat.git"]
+	path = vim/bundle/repeat.git
+	url = http://github.com/tpope/vim-repeat.git
+[submodule "vim/bundle/ack.git"]
+	path = vim/bundle/ack.git
+	url = http://github.com/mileszs/ack.vim.git
+[submodule "vim/bundle/snipmate.git"]
+	path = vim/bundle/snipmate.git
+	url = git@github.com:nerdrew/snipmate.vim.git
+[submodule "vim/bundle/ruby.git"]
+	path = vim/bundle/ruby.git
+	url = git@github.com:nerdrew/vim-ruby.git
+[submodule "vim/bundle/surround.git"]
+	path = vim/bundle/surround.git
+	url = http://github.com/tpope/vim-surround.git
+[submodule "vim/bundle/fugitive.git"]
+	path = vim/bundle/fugitive.git
+	url = http://github.com/tpope/vim-fugitive.git
