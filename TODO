@@ -1,2 +1,4 @@
  * modeline prompting: if there is a modeline, prompt the user to load it.
  * tabstop control function: easily set tabstop, softtabstop, and shiftwidth to the same value; noexpandtabs
+ * Auto tag file creation. E.g. RVM. Needs to remember file types. Script / project?
+ * Ruby snippets: add #comment to end of defs, ifs, blocks, etc.
