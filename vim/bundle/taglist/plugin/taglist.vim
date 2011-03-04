@@ -1540,7 +1540,7 @@ function! s:Tlist_Window_Init()
     " Setup balloon evaluation to display tag prototype
     if v:version >= 700 && has('balloon_eval')
         setlocal balloonexpr=Tlist_Ballon_Expr()
-        set ballooneval
+        "set ballooneval
     endif
 
     " Setup the cpoptions properly for the maps to work

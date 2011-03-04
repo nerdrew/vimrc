@@ -54,7 +54,8 @@ if has('autocmd')
 endif
 
 " No tooltips
-if exists('+ballooneval')
+"if exists('+ballooneval')
+if has('balloon_eval')
   set noballooneval
 endif
 
