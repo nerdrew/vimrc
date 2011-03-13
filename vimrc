@@ -107,11 +107,11 @@ vmap <D-[> <gv
 vmap <D-]> >gv
 
 " From the cmdline help page - ex cmdline key bindings
-:cnoremap <C-A> <Home>
-:cnoremap <C-F> <Right>
-:cnoremap <C-B> <Left>
-:cnoremap <Esc>b <S-Left>
-:cnoremap <Esc>f <S-Right>
+cnoremap <C-A> <Home>
+cnoremap <C-F> <Right>
+cnoremap <C-B> <Left>
+cnoremap <Esc>b <S-Left>
+cnoremap <Esc>f <S-Right>
 
 " From http://github.com/namedpipe/fuzzyfinder_textmate
 nnoremap <unique> <leader>f :FuzzyFinderTextMate<CR>
@@ -120,6 +120,8 @@ nnoremap <unique> <leader>n :NERDTreeToggle<CR>
 map <unique> <silent> <Leader>z <Plug>SimpleFold_Foldsearch
 "nnoremap <leader>b :TMiniBufExplorer<CR>
 
+inoremap <C-A> <Home>
+inoremap <C-E> <End>
 
 """""""""""""""""""""""""""""""""
 " Plugin options
