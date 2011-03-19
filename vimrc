@@ -101,10 +101,10 @@ nnoremap <leader><space> :nohls<cr>
 nnoremap <leader>l :set nolist!<CR>
 
 " From http://vimcasts.org/episodes/indentation-commands/
-nmap <D-[> <<
-nmap <D-]> >>
-vmap <D-[> <gv
-vmap <D-]> >gv
+"nmap <D-[> <<
+"nmap <D-]> >>
+"vmap <D-[> <gv
+"vmap <D-]> >gv
 
 " From the cmdline help page - ex cmdline key bindings
 cnoremap <C-A> <Home>
@@ -117,11 +117,14 @@ cnoremap <Esc>f <S-Right>
 nnoremap <unique> <leader>f :FuzzyFinderTextMate<CR>
 nnoremap <unique> <leader>t :TlistToggle<CR>
 nnoremap <unique> <leader>n :NERDTreeToggle<CR>
-map <unique> <silent> <Leader>z <Plug>SimpleFold_Foldsearch
+map <unique> <silent> <leader>z <Plug>SimpleFold_Foldsearch
+noremap <unique> <leader>g :GundoToggle<CR>
 "nnoremap <leader>b :TMiniBufExplorer<CR>
 
-inoremap <C-A> <Home>
-inoremap <C-E> <End>
+"inoremap <C-A> <Home>
+"inoremap <C-E> <End>
+"inoremap <C-F> <Right>   " cinkeys needs to be changed too for this
+"inoremap <C-B> <Left>
 
 """""""""""""""""""""""""""""""""
 " Plugin options
