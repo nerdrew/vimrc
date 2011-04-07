@@ -15,7 +15,7 @@
 	url = http://github.com/namedpipe/fuzzyfinder_textmate.git
 [submodule "vim/bundle/rails.git"]
 	path = vim/bundle/rails.git
-	url = http://github.com/tpope/vim-rails.git
+	url = http://github.com/nerdrew/vim-rails.git
 [submodule "vim/bundle/nerdcommenter.git"]
 	path = vim/bundle/nerdcommenter.git
 	url = http://github.com/scrooloose/nerdcommenter.git
