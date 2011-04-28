@@ -141,6 +141,9 @@ noremap <unique> <leader>g :GundoToggle<CR>
 "let g:miniBufExplModSelTarget = 1
 "let g:miniBufExplMapCTabSwitchBufs = 1
 
+" BufExplorer
+let g:bufExplorerShowRelativePath=1
+
 " detect indent
 let g:detectindent_preferred_expandtab = 1
 let g:detectindent_preferred_indent = 2
