@@ -47,10 +47,13 @@ filetype plugin on
 filetype indent on
 
 " http://stackoverflow.com/questions/677986/vim-copy-selection-to-os-x-clipboard
-set clipboard=unnamed
+"set clipboard=unnamed
 
 if has('autocmd')
   autocmd filetype python set expandtab
+  
+  " Show trailing whitepace and spaces before a tab:
+  "autocmd Syntax * syn match Error /\s\+$\| \+\ze\t/
 endif
 
 " No tooltips
