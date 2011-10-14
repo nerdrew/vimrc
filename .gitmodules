@@ -37,3 +37,18 @@
 [submodule "vim/bundle/gundo.git"]
 	path = vim/bundle/gundo.git
 	url = https://github.com/sjl/gundo.vim.git
+[submodule "vim/bundle/vcscommand.git"]
+	path = vim/bundle/vcscommand.git
+	url = https://github.com/vim-scripts/vcscommand.vim.git
+[submodule "vim/bundle/easygrep.git"]
+	path = vim/bundle/easygrep.git
+	url = https://github.com/vim-scripts/EasyGrep.git
+[submodule "vim/bundle/taglist.git"]
+	path = vim/bundle/taglist.git
+	url = https://github.com/vim-scripts/taglist.vim.git
+[submodule "vim/bundle/fuzzyfinder.git"]
+	path = vim/bundle/fuzzyfinder.git
+	url = https://github.com/vim-scripts/FuzzyFinder.git
+[submodule "vim/bundle/l9.git"]
+	path = vim/bundle/l9.git
+	url = https://github.com/vim-scripts/L9.git
