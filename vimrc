@@ -28,8 +28,7 @@ set listchars=tab:>\ ,trail:·,eol:$,nbsp:·,extends:#
 " set relativenumber " shows relative line numbers
 
 " Allows per plugin directories, needs to be before `filetype plugin indent on'
-" call pathogen#helptags_all_bundles()
-call pathogen#runtime_append_all_bundles()
+call pathogen#infect()
 
 " % will match more than just brackets
 runtime macros/matchit.vim
@@ -117,7 +116,7 @@ cnoremap <Esc>b <S-Left>
 cnoremap <Esc>f <S-Right>
 
 " From http://github.com/namedpipe/fuzzyfinder_textmate
-nnoremap <unique> <leader>f :FuzzyFinderTextMate<CR>
+nnoremap <unique> <leader>f :FufCoverageFile<CR>
 nnoremap <unique> <leader>t :TlistToggle<CR>
 nnoremap <unique> <leader>n :NERDTreeToggle<CR>
 map <unique> <silent> <leader>z <Plug>SimpleFold_Foldsearch
