@@ -10,9 +10,6 @@
 [submodule "vim/bundle/nerdtree.git"]
 	path = vim/bundle/nerdtree.git
 	url = http://github.com/scrooloose/nerdtree.git
-[submodule "vim/bundle/fuzzyfinder_textmate.git"]
-	path = vim/bundle/fuzzyfinder_textmate.git
-	url = http://github.com/namedpipe/fuzzyfinder_textmate.git
 [submodule "vim/bundle/rails.git"]
 	path = vim/bundle/rails.git
 	url = http://github.com/nerdrew/vim-rails.git
