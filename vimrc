@@ -96,11 +96,6 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
-" Hide search highlighting when redrawing screen
-nnoremap <leader><space> :nohls<cr>
-
-" The following will make whitespace visible when requested: 
-nnoremap <leader>l :set nolist!<CR>
 
 " From http://vimcasts.org/episodes/indentation-commands/
 "nmap <D-[> <<
@@ -109,19 +104,28 @@ nnoremap <leader>l :set nolist!<CR>
 "vmap <D-]> >gv
 
 " From the cmdline help page - ex cmdline key bindings
-cnoremap <C-A> <Home>
-cnoremap <C-F> <Right>
-cnoremap <C-B> <Left>
-cnoremap <Esc>b <S-Left>
-cnoremap <Esc>f <S-Right>
+cmap <C-A> <Home>
+cmap <C-F> <Right>
+cmap <C-B> <Left>
+cmap <Esc>b <S-Left>
+cmap <Esc>f <S-Right>
+cmap <C-P> <C-R>=expand("%:p:h") . "/" <CR>
 
 " From http://github.com/namedpipe/fuzzyfinder_textmate
-nnoremap <unique> <leader>f :FufCoverageFile<CR>
-nnoremap <unique> <leader>t :TlistToggle<CR>
+nnoremap <unique> <leader>fc :FufCoverageFile<CR>
+nnoremap <unique> <leader>fb :FufBuffer<CR>
+nnoremap <unique> <leader>ff :FufFile<CR>
+nnoremap <unique> <leader>tl :TlistToggle<CR>
 nnoremap <unique> <leader>n :NERDTreeToggle<CR>
 map <unique> <silent> <leader>z <Plug>SimpleFold_Foldsearch
 noremap <unique> <leader>g :GundoToggle<CR>
 "nnoremap <leader>b :TMiniBufExplorer<CR>
+map <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
+map <Leader>te :tabe <C-R>=expand("%:p:h") . "/" <CR>
+" Hide search highlighting when redrawing screen
+nnoremap <leader><space> :nohls<cr>
+" The following will make whitespace visible when requested: 
+nnoremap <leader>l :set nolist!<CR>
 
 "inoremap <C-A> <Home>
 "inoremap <C-E> <End>
