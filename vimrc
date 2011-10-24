@@ -126,6 +126,8 @@ map <Leader>te :tabe <C-R>=expand("%:p:h") . "/" <CR>
 nnoremap <leader><space> :nohls<cr>
 " The following will make whitespace visible when requested: 
 nnoremap <leader>l :set nolist!<CR>
+map <unique> <leader># :call g:ToggleNuMode()<CR>
+map <unique> <leader>w :set wrap!<CR>
 
 "inoremap <C-A> <Home>
 "inoremap <C-E> <End>
@@ -179,6 +181,14 @@ function! Tabs(num)
   let &softtabstop = a:num
 endfunction
 command! -nargs=1 Tabs call Tabs(<args>)
+
+function! g:ToggleNuMode()
+  if(&rnu == 1)
+    set nu
+  else
+    set rnu
+  endif
+endfunc
 
 " function! ShowSynStack()
 "   let s:syn_stack = ''
