@@ -138,6 +138,12 @@ map <unique> <leader>w :set wrap!<CR>
 " Plugin options
 """""""""""""""""""""""""""""""""
 
+" snipmate
+"let g:snips_trigger_key='<C->'
+"let g:SuperTabMappingForward='<C->'
+"let g:SuperTabMappingBackward='<C->'
+"let g:SuperTabDefaultCompletionType = "context"
+
 " repmo.vim - REMOVED
 "let g:repmo_mapmotions = ""
 

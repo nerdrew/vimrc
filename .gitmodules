@@ -52,3 +52,15 @@
 [submodule "vim/bundle/supertab.git"]
 	path = vim/bundle/supertab.git
 	url = https://github.com/ervandew/supertab.git
+[submodule "vim/bundle/snipmate.git"]
+	path = vim/bundle/snipmate.git
+	url = https://github.com/garbas/vim-snipmate.git
+[submodule "vim/bundle/tlib.git"]
+	path = vim/bundle/tlib.git
+	url = https://github.com/tomtom/tlib_vim.git
+[submodule "vim/bundle/add-mw-utils.git"]
+	path = vim/bundle/add-mw-utils.git
+	url = https://github.com/MarcWeber/vim-addon-mw-utils.git
+[submodule "vim/bundle/snippets.git"]
+	path = vim/bundle/snippets.git
+	url = https://github.com/honza/snipmate-snippets.git
