@@ -25,6 +25,7 @@ set history=1000
 set ruler
 set backspace=indent,eol,start
 set listchars=tab:>\ ,trail:·,eol:$,nbsp:·,extends:#
+"set iskeyword=@,48-57,192-255
 " set relativenumber " shows relative line numbers
 
 " Allows per plugin directories, needs to be before `filetype plugin indent on'
@@ -112,20 +113,21 @@ cmap <Esc>f <S-Right>
 cmap <C-P> <C-R>=expand("%:p:h") . "/" <CR>
 
 " From http://github.com/namedpipe/fuzzyfinder_textmate
-nnoremap <unique> <leader>fc :FufCoverageFile<CR>
-nnoremap <unique> <leader>fb :FufBuffer<CR>
-nnoremap <unique> <leader>ff :FufFile<CR>
-nnoremap <unique> <leader>tl :TlistToggle<CR>
-nnoremap <unique> <leader>n :NERDTreeToggle<CR>
+noremap <unique> <leader>fc :FufCoverageFile<CR>
+noremap <unique> <leader>fb :FufBuffer<CR>
+noremap <unique> <leader>ff :FufFile<CR>
+noremap <unique> <leader>fr :FufRenewCache<CR>
+noremap <unique> <leader>tl :TlistToggle<CR>
+noremap <unique> <leader>n :NERDTreeToggle<CR>
 map <unique> <silent> <leader>z <Plug>SimpleFold_Foldsearch
 noremap <unique> <leader>g :GundoToggle<CR>
 "nnoremap <leader>b :TMiniBufExplorer<CR>
 map <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
 map <Leader>te :tabe <C-R>=expand("%:p:h") . "/" <CR>
 " Hide search highlighting when redrawing screen
-nnoremap <leader><space> :nohls<cr>
+noremap <leader><space> :nohls<cr>
 " The following will make whitespace visible when requested: 
-nnoremap <leader>l :set nolist!<CR>
+noremap <leader>l :set nolist!<CR>
 map <unique> <leader># :call g:ToggleNuMode()<CR>
 map <unique> <leader>w :set wrap!<CR>
 
@@ -186,7 +188,7 @@ function! Tabs(num)
   let &shiftwidth = a:num
   let &softtabstop = a:num
 endfunction
-command! -nargs=1 Tabs call Tabs(<args>)
+command! -nargs=1 -complete=command Tabs call Tabs(<args>)
 
 function! g:ToggleNuMode()
   if(&rnu == 1)
