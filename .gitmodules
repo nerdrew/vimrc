@@ -43,9 +43,6 @@
 [submodule "vim/bundle/taglist.git"]
 	path = vim/bundle/taglist.git
 	url = https://github.com/vim-scripts/taglist.vim.git
-[submodule "vim/bundle/fuzzyfinder.git"]
-	path = vim/bundle/fuzzyfinder.git
-	url = https://github.com/vim-scripts/FuzzyFinder.git
 [submodule "vim/bundle/l9.git"]
 	path = vim/bundle/l9.git
 	url = https://github.com/vim-scripts/L9.git
@@ -64,3 +61,6 @@
 [submodule "vim/bundle/snippets.git"]
 	path = vim/bundle/snippets.git
 	url = https://github.com/honza/snipmate-snippets.git
+[submodule "vim/bundle/command-t"]
+	path = vim/bundle/command-t
+	url = https://github.com/wincent/Command-T.git

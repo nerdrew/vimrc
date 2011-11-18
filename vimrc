@@ -28,6 +28,13 @@ set listchars=tab:>\ ,trail:·,eol:$,nbsp:·,extends:#
 "set iskeyword=@,48-57,192-255
 " set relativenumber " shows relative line numbers
 
+if has("gui_running")
+  " hide toolbar
+  set guioptions-=T
+else
+  let g:command_t_loaded = 1
+endif
+
 " Allows per plugin directories, needs to be before `filetype plugin indent on'
 call pathogen#infect()
 
@@ -62,10 +69,6 @@ if has('balloon_eval')
   set noballooneval
 endif
 
-" hide toolbar
-if has("gui_running")
-  set guioptions-=T
-endif
 
 " from http://www.linux.com/archive/feature/114138
 " save folds when closing, restore folds on open
@@ -113,10 +116,13 @@ cmap <Esc>f <S-Right>
 cmap <C-P> <C-R>=expand("%:p:h") . "/" <CR>
 
 " From http://github.com/namedpipe/fuzzyfinder_textmate
-noremap <unique> <leader>fc :FufCoverageFile<CR>
-noremap <unique> <leader>fb :FufBuffer<CR>
-noremap <unique> <leader>ff :FufFile<CR>
-noremap <unique> <leader>fr :FufRenewCache<CR>
+"noremap <unique> <leader>fc :FufCoverageFile<CR>
+"noremap <unique> <leader>fb :FufBuffer<CR>
+"noremap <unique> <leader>ff :FufFile<CR>
+"noremap <unique> <leader>fr :FufRenewCache<CR>
+nnoremap <silent> <Leader>f :CommandT<CR>
+nnoremap <silent> <Leader>b :CommandTBuffer<CR>
+nnoremap <silent> <Leader>r :CommandTFlush<CR>
 noremap <unique> <leader>tl :TlistToggle<CR>
 noremap <unique> <leader>n :NERDTreeToggle<CR>
 map <unique> <silent> <leader>z <Plug>SimpleFold_Foldsearch
@@ -139,6 +145,10 @@ map <unique> <leader>w :set wrap!<CR>
 """""""""""""""""""""""""""""""""
 " Plugin options
 """""""""""""""""""""""""""""""""
+
+" eruby doesn't correctly indent javascript w/o this
+autocmd BufRead,BufNewFile *.erb set filetype=javascript
+autocmd BufRead,BufNewFile *.erb set filetype=eruby
 
 " snipmate
 "let g:snips_trigger_key='<C->'
