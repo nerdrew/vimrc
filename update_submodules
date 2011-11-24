@@ -1,0 +1,3 @@
+#!/usr/bin/env zsh
+
+git submodule foreach 'if $(git remote -v | grep -q upstream) ; then git checkout master && git pull upstream master; else git checkout master && git pull; fi'
