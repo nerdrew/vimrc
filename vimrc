@@ -115,25 +115,20 @@ cmap <Esc>b <S-Left>
 cmap <Esc>f <S-Right>
 cmap <C-P> <C-R>=expand("%:p:h") . "/" <CR>
 
-" From http://github.com/namedpipe/fuzzyfinder_textmate
-"noremap <unique> <leader>fc :FufCoverageFile<CR>
-"noremap <unique> <leader>fb :FufBuffer<CR>
-"noremap <unique> <leader>ff :FufFile<CR>
-"noremap <unique> <leader>fr :FufRenewCache<CR>
-nnoremap <silent> <Leader>f :CommandT<CR>
-nnoremap <silent> <Leader>b :CommandTBuffer<CR>
-nnoremap <silent> <Leader>r :CommandTFlush<CR>
-noremap <unique> <leader>tl :TlistToggle<CR>
-noremap <unique> <leader>n :NERDTreeToggle<CR>
-map <unique> <silent> <leader>z <Plug>SimpleFold_Foldsearch
-noremap <unique> <leader>g :GundoToggle<CR>
+map <unique> <leader><leader>t :TlistToggle<CR>
+map <unique> <leader><leader>n :NERDTreeToggle<CR>
 "nnoremap <leader>b :TMiniBufExplorer<CR>
-map <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
-map <Leader>te :tabe <C-R>=expand("%:p:h") . "/" <CR>
+map <silent> <Leader>f :CommandT<CR>
+map <silent> <Leader>b :CommandTBuffer<CR>
+map <silent> <Leader>r :CommandTFlush<CR>
+map <unique> <leader>z <Plug>SimpleFold_Foldsearch<CR>
+map <unique> <leader>g :GundoToggle<CR>
+noremap <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
+noremap <Leader>t :tabe <C-R>=expand("%:p:h") . "/" <CR>
 " Hide search highlighting when redrawing screen
-noremap <leader><space> :nohls<cr>
+map <leader><space> :nohls<cr>
 " The following will make whitespace visible when requested: 
-noremap <leader>l :set nolist!<CR>
+map <leader>l :set nolist!<CR>
 map <unique> <leader># :call g:ToggleNuMode()<CR>
 map <unique> <leader>w :set wrap!<CR>
 
@@ -149,6 +144,9 @@ map <unique> <leader>w :set wrap!<CR>
 " eruby doesn't correctly indent javascript w/o this
 autocmd BufRead,BufNewFile *.erb set filetype=javascript
 autocmd BufRead,BufNewFile *.erb set filetype=eruby
+
+" command-t
+let g:CommandTMatchWindowReverse=1
 
 " snipmate
 "let g:snips_trigger_key='<C->'
