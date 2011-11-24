@@ -64,3 +64,9 @@
 [submodule "vim/bundle/command-t"]
 	path = vim/bundle/command-t
 	url = https://github.com/wincent/Command-T.git
+[submodule "vim/bundle/yankstack"]
+	path = vim/bundle/yankstack
+	url = https://github.com/maxbrunsfeld/vim-yankstack.git
+[submodule "vim/bundle/simplefold"]
+	path = vim/bundle/simplefold
+	url = https://github.com/pangloss/vim-simplefold.git
