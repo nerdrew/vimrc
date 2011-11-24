@@ -69,4 +69,4 @@
 	url = https://github.com/maxbrunsfeld/vim-yankstack.git
 [submodule "vim/bundle/simplefold"]
 	path = vim/bundle/simplefold
-	url = https://github.com/pangloss/vim-simplefold.git
+	url = git@github.com:nerdrew/vim-simplefold.git
