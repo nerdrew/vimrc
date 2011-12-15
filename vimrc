@@ -58,9 +58,12 @@ filetype indent on
 
 if has('autocmd')
   autocmd filetype python set expandtab
-  
+
   " Show trailing whitepace and spaces before a tab:
   "autocmd Syntax * syn match Error /\s\+$\| \+\ze\t/
+
+  " Remove trailing whitespace on save
+  autocmd BufWritePre *.{rb,erb} let _s=@/ | exe "normal! msHmt" | keepj %s/\s\+$//e | let @/=_s | nohl | exe "normal! 'tzt`s"
 endif
 
 " No tooltips
@@ -115,11 +118,12 @@ cmap <Esc>b <S-Left>
 cmap <Esc>f <S-Right>
 cmap <C-P> <C-R>=expand("%:p:h") . "/" <CR>
 
-map <unique> <leader><leader>t :TlistToggle<CR>
-map <unique> <leader><leader>n :NERDTreeToggle<CR>
+"map <unique> <leader>be :BufExplorer<CR>
+map <unique> <leader>a :TlistToggle<CR>
+map <unique> <leader>n :NERDTreeToggle<CR>
 "nnoremap <leader>b :TMiniBufExplorer<CR>
 map <silent> <Leader>f :CommandT<CR>
-map <silent> <Leader>b :CommandTBuffer<CR>
+map <silent> <Leader>d :CommandTBuffer<CR>
 map <silent> <Leader>r :CommandTFlush<CR>
 map <unique> <leader>z <Plug>SimpleFold_Foldsearch<CR>
 map <unique> <leader>g :GundoToggle<CR>
@@ -143,7 +147,7 @@ map <unique> <leader>w :set wrap!<CR>
 
 " eruby doesn't correctly indent javascript w/o this
 autocmd BufRead,BufNewFile *.erb set filetype=javascript
-autocmd BufRead,BufNewFile *.erb set filetype=eruby
+autocmd BufRead,BufNewFile *.erb set filetype=eruby.html
 
 " command-t
 let g:CommandTMatchWindowReverse=1
@@ -152,7 +156,7 @@ let g:CommandTMatchWindowReverse=1
 "let g:snips_trigger_key='<C->'
 "let g:SuperTabMappingForward='<C->'
 "let g:SuperTabMappingBackward='<C->'
-"let g:SuperTabDefaultCompletionType = "context"
+"let g:SuperTabDefaultCompletionType = 'context'
 
 " repmo.vim - REMOVED
 "let g:repmo_mapmotions = ""
