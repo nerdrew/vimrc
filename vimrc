@@ -78,7 +78,8 @@ endif
 "au BufWinLeave * mkview
 "au BufWinEnter * silent loadview
 
-
+" Call yankstack BEFORE my keyboard remappings
+call yankstack#setup()
 """""""""""""""""""""""""""""""""
 " Keyboard Re-mappings
 """""""""""""""""""""""""""""""""
@@ -121,7 +122,9 @@ cmap <C-P> <C-R>=expand("%:p:h") . "/" <CR>
 "map <unique> <leader>be :BufExplorer<CR>
 map <unique> <leader>a :TlistToggle<CR>
 map <unique> <leader>n :NERDTreeToggle<CR>
-"nnoremap <leader>b :TMiniBufExplorer<CR>
+"map <unique> <leader>be :MiniBufExplorer<CR>
+"map <unique> <leader>bc :CMiniBufExplorer<CR>
+"map <unique> <leader>bu :UMiniBufExplorer<CR>
 map <silent> <Leader>f :CommandT<CR>
 map <silent> <Leader>d :CommandTBuffer<CR>
 map <silent> <Leader>r :CommandTFlush<CR>
@@ -162,7 +165,11 @@ let g:CommandTMatchWindowReverse=1
 "let g:repmo_mapmotions = ""
 
 " MiniBufferExplorer
-"let g:miniBufExplorerMoreThanOne = 20     " don't open miniBufExplorer until there are many buffers
+"let g:miniBufExplCloseOnSelect = 1
+"let g:miniBufExplVSplit = 40
+"let g:miniBufExplSortBy = "mru"
+" don't open miniBufExplorer until there are many buffers
+"let g:miniBufExplorerMoreThanOne = 20
 "let g:miniBufExplModSelTarget = 1
 "let g:miniBufExplMapCTabSwitchBufs = 1
 
