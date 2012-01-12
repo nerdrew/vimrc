@@ -79,3 +79,6 @@
 [submodule "vim/bundle/textobj-user"]
 	path = vim/bundle/textobj-user
 	url = git://github.com/kana/vim-textobj-user.git
+[submodule "vim/bundle/moria"]
+	path = vim/bundle/moria
+	url = git://github.com/vim-scripts/moria.git

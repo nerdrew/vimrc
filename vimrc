@@ -32,7 +32,7 @@ if has("gui_running")
   " hide toolbar
   set guioptions-=T
 else
-  let g:command_t_loaded = 1
+  "let g:command_t_loaded = 1
 endif
 
 " Allows per plugin directories, needs to be before `filetype plugin indent on'
@@ -125,9 +125,9 @@ map <unique> <leader>n :NERDTreeToggle<CR>
 "map <unique> <leader>be :MiniBufExplorer<CR>
 "map <unique> <leader>bc :CMiniBufExplorer<CR>
 "map <unique> <leader>bu :UMiniBufExplorer<CR>
-map <silent> <Leader>f :CommandT<CR>
-map <silent> <Leader>d :CommandTBuffer<CR>
-map <silent> <Leader>r :CommandTFlush<CR>
+map <unique> <Leader>f :CommandT<CR>
+map <unique> <Leader>d :CommandTBuffer<CR>
+map <unique> <Leader>r :CommandTFlush<CR>
 map <unique> <leader>z <Plug>SimpleFold_Foldsearch<CR>
 map <unique> <leader>g :GundoToggle<CR>
 noremap <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>

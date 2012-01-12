@@ -10,7 +10,7 @@
 " Name Of File: bufexplorer.vim
 "  Description: Buffer Explorer Vim Plugin
 "   Maintainer: Jeff Lanzarotta (delux256-vim at yahoo dot com)
-" Last Changed: Friday, 22 October 2010
+" Last Changed: Tuesday, 16 Feb 2010
 "      Version: See g:bufexplorer_version for version number.
 "        Usage: This file should reside in the plugin directory and be
 "               automatically sourced.
@@ -38,7 +38,7 @@ endif
 "1}}}
 
 " Version number
-let g:bufexplorer_version = "7.2.8"
+let g:bufexplorer_version = "8.0.0"
 
 " Check for Vim version 700 or greater {{{1
 if v:version < 700
@@ -142,20 +142,20 @@ function! s:BEAddBuffer()
   if !exists('s:raw_buffer_listing') || empty(s:raw_buffer_listing)
     silent let s:raw_buffer_listing = s:BEGetBufferInfo(0)
   else
-    " We cannot use :buffers! or :ls! to gather information 
+    " We cannot use :buffers! or :ls! to gather information
     " about this buffer since it was only just added.
-    " Any changes to the buffer (setlocal buftype, ...) 
+    " Any changes to the buffer (setlocal buftype, ...)
     " happens after this event fires.
     "
     " So we will indicate the :buffers! command must be re-run.
     " This should help with the performance of the plugin.
 
-    " There are some checks which can be performed 
+    " There are some checks which can be performed
     " before deciding to refresh the buffer list.
     let bufnr = expand('<abuf>') + 0
 
     if s:BEIgnoreBuffer(bufnr) == 1
-      return 
+      return
     else
       let s:refreshBufferList = 1
     endif
@@ -174,7 +174,7 @@ function! s:BEActivateBuffer()
   endif
 
   if !empty(l) && l[0] == '-1'
-    " The first time we add a tab Vim uses the current 
+    " The first time we add a tab Vim uses the current
     " buffer as it's starting page, even though we are about
     " to edit a new page (BufEnter triggers after), so
     " remove the -1 entry indicating we have covered this case.
@@ -214,7 +214,7 @@ function! s:BEActivateBuffer()
     let shortlist = filter(copy(s:raw_buffer_listing), "v:val.attributes =~ '".'^\s*'.b.'u\>'."'")
 
     if !empty(shortlist)
-      " If it is unlisted (ie deleted), but now we editing it again 
+      " If it is unlisted (ie deleted), but now we editing it again
       " rebuild the buffer list.
       let s:refreshBufferList = 1
     endif
@@ -254,21 +254,11 @@ endfunction
 
 " BEInitialize {{{1
 function! s:BEInitialize()
-  let s:_insertmode = &insertmode
-  set noinsertmode
-
-  let s:_showcmd = &showcmd
-  set noshowcmd
-
-  let s:_cpo = &cpo
-  set cpo&vim
-
-  let s:_report = &report
-  let &report = 10000
-
-  let s:_list = &list
-  set nolist
-
+  setlocal noinsertmode
+  setlocal noshowcmd
+  setlocal cpo&vim
+  setlocal report=10000
+  setlocal nolist
   setlocal nonumber
   setlocal foldcolumn=0
   setlocal nofoldenable
@@ -279,7 +269,7 @@ function! s:BEInitialize()
   let s:running = 1
 endfunction
 
-" BEIgnoreBuffer 
+" BEIgnoreBuffer
 function! s:BEIgnoreBuffer(buf)
   " Check to see if this buffer should be ignore by BufExplorer.
 
@@ -308,16 +298,11 @@ function! s:BEIgnoreBuffer(buf)
     return 1
   end
 
-  return 0 
+  return 0
 endfunction
 
 " BECleanup {{{1
 function! s:BECleanup()
-  if exists("s:_insertmode")|let &insertmode = s:_insertmode|endif
-  if exists("s:_showcmd")   |let &showcmd    = s:_showcmd   |endif
-  if exists("s:_cpo")       |let &cpo        = s:_cpo       |endif
-  if exists("s:_report")    |let &report     = s:_report    |endif
-  if exists("s:_list")      |let &list       = s:_list      |endif
   let s:running   = 0
   let s:splitMode = ""
 
@@ -343,19 +328,10 @@ function! StartBufExplorer(open)
     if !has("win32")
         " On non-Windows boxes, escape the name so that is shows up correctly.
         let name = escape(name, "[]")
-        call s:BEError("Escaped")
     endif
 
     " Make sure there is only one explorer open at a time.
     if s:running == 1
-        call s:BEError("WHAT THE 1")
-        " Go to the open buffer.
-        if has("gui")
-            call s:BEError("WHAT THE 2")
-            call s:BEError(name)
-            exec "drop" name
-        endif
-
         return
     endif
 
@@ -363,7 +339,7 @@ function! StartBufExplorer(open)
     let s:originBuffer = bufnr("%") + 0
 
     " Create or rebuild the raw buffer list if necessary.
-    if !exists('s:raw_buffer_listing') || 
+    if !exists('s:raw_buffer_listing') ||
             \ empty(s:raw_buffer_listing) ||
             \ s:refreshBufferList == 1
         silent let s:raw_buffer_listing = s:BEGetBufferInfo(0)
@@ -401,8 +377,8 @@ endfunction
 
 " BEDisplayBufferList {{{1
 function! s:BEDisplayBufferList()
-  " Do not set bufhidden since it wipes out 
-  " the data if we switch away from the buffer 
+  " Do not set bufhidden since it wipes out
+  " the data if we switch away from the buffer
   " using CTRL-^
   setlocal buftype=nofile
   setlocal modifiable
@@ -432,7 +408,7 @@ function! s:BEMapKeys()
     nnoremap <buffer> <silent> <tab> :call <SID>BESelectBuffer("tab")<cr>
   endif
 
-  nnoremap <buffer> <silent> <F1>          :call <SID>BEToggleHelp()<cr>
+  nnoremap <buffer> <silent> ?             :call <SID>BEToggleHelp()<cr>
   nnoremap <buffer> <silent> <2-leftmouse> :call <SID>BESelectBuffer()<cr>
   nnoremap <buffer> <silent> <cr>          :call <SID>BESelectBuffer()<cr>
   nnoremap <buffer> <silent> o             :call <SID>BESelectBuffer()<cr>
@@ -447,6 +423,8 @@ function! s:BEMapKeys()
   nnoremap <buffer> <silent> m             :call <SID>BEMRUListShow()<cr>
   nnoremap <buffer> <silent> p             :call <SID>BEToggleSplitOutPathName()<cr>
   nnoremap <buffer> <silent> q             :call <SID>BEClose("quit")<cr>
+  nnoremap <buffer> <silent> <C-c>         :call <SID>BEClose("quit")<cr>
+  nnoremap <buffer> <silent>             :call <SID>BEClose("quit")<cr>
   nnoremap <buffer> <silent> r             :call <SID>BESortReverse()<cr>
   nnoremap <buffer> <silent> R             :call <SID>BEToggleShowRelativePath()<cr>
   nnoremap <buffer> <silent> s             :call <SID>BESortSelect()<cr>
@@ -554,14 +532,14 @@ function! s:BECreateHelp()
   if g:bufExplorerDetailedHelp == 1
     call add(header, '" Buffer Explorer ('.g:bufexplorer_version.')')
     call add(header, '" --------------------------')
-    call add(header, '" <F1> : toggle this help')
+    call add(header, '" ? : toggle this help')
     call add(header, '" <enter> or o or Mouse-Double-Click : open buffer under cursor')
     call add(header, '" <shift-enter> or t : open buffer in another tab')
     call add(header, '" d : delete buffer')
     call add(header, '" D : wipe buffer')
     call add(header, '" f : toggle find active buffer')
     call add(header, '" p : toggle spliting of file and path name')
-    call add(header, '" q : quit')
+    call add(header, '" q or <control-c> : quit')
     call add(header, '" r : reverse sort')
     call add(header, '" R : toggle showing relative or full paths')
     call add(header, '" s : cycle thru "sort by" fields '.string(s:sort_by).'')
@@ -569,7 +547,7 @@ function! s:BECreateHelp()
     call add(header, '" T : toggle if to show only buffers for this tab or not')
     call add(header, '" u : toggle showing unlisted buffers')
   else
-    call add(header, '" Press <F1> for Help')
+    call add(header, '" Press ? for Help')
   endif
 
   if (!exists("b:displayMode") || b:displayMode != "winmanager") || (b:displayMode == "winmanager" && g:bufExplorerDetailedHelp == 1)
@@ -589,7 +567,7 @@ function! s:BEGetBufferInfo(bufnr)
   redir END
 
   if (a:bufnr > 0)
-    " Since we are only interested in this specified buffer 
+    " Since we are only interested in this specified buffer
     " remove the other buffers listed
     let bufoutput = substitute(bufoutput."\n", '^.*\n\(\s*'.a:bufnr.'\>.\{-}\)\n.*', '\1', '')
   endif
@@ -658,7 +636,7 @@ function! s:BEBuildBufferList()
                 endif
             endfor
 
-            if show_buffer == 0 
+            if show_buffer == 0
                 continue
             endif
         endif
@@ -715,7 +693,7 @@ function! s:BESelectBuffer(...)
     else
       call WinManagerFileEdit(bufname, 0)
     endif
- 
+
     return
   endif
 
@@ -775,7 +753,7 @@ function! s:BESelectBuffer(...)
 
     " Make the buffer 'listed' again.
     call setbufvar(_bufNbr, "&buflisted", "1")
- 
+
  	" call any associated function references
  	" g:bufExplorerFuncRef may be an individual function reference
  	"                or it may be a list containing function references.
@@ -843,7 +821,7 @@ function! s:BERemoveBuffer(type, mode) range
             if bufNbr !~ '^\d\+$' || getbufvar(bufNbr+0, '&modified') != 0
                 call s:BEError("Sorry, no write since last change for buffer ".bufNbr.", unable to delete")
             else
-                let _bufNbrs = _bufNbrs . (_bufNbrs==''?'':' '). bufNbr 
+                let _bufNbrs = _bufNbrs . (_bufNbrs==''?'':' '). bufNbr
             endif
         endif
     endfor
