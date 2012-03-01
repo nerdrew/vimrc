@@ -27,6 +27,7 @@ set backspace=indent,eol,start
 set listchars=tab:>\ ,trail:·,eol:$,nbsp:·,extends:#
 "set iskeyword=@,48-57,192-255
 " set relativenumber " shows relative line numbers
+"let &keywordprg=' '
 
 if has("gui_running")
   " hide toolbar
@@ -57,10 +58,16 @@ filetype indent on
 "set clipboard=unnamed
 
 if has('autocmd')
-  autocmd filetype python set expandtab
+  autocmd filetype python set expandtab sw=4 ts=4 sts=4
 
   " Show trailing whitepace and spaces before a tab:
   "autocmd Syntax * syn match Error /\s\+$\| \+\ze\t/
+
+  " eruby doesn't correctly indent javascript w/o this
+  autocmd BufRead,BufNewFile *.erb set filetype=javascript
+  autocmd BufRead,BufNewFile *.erb set filetype=eruby.html
+
+  autocmd BufRead,BufNewFile *.as set filetype=actionscript
 
   " Remove trailing whitespace on save
   autocmd BufWritePre *.{rb,erb} let _s=@/ | exe "normal! msHmt" | keepj %s/\s\+$//e | let @/=_s | nohl | exe "normal! 'tzt`s"
@@ -148,10 +155,6 @@ map <unique> <leader>w :set wrap!<CR>
 " Plugin options
 """""""""""""""""""""""""""""""""
 
-" eruby doesn't correctly indent javascript w/o this
-autocmd BufRead,BufNewFile *.erb set filetype=javascript
-autocmd BufRead,BufNewFile *.erb set filetype=eruby.html
-
 " command-t
 let g:CommandTMatchWindowReverse=1
 
@@ -188,6 +191,10 @@ let g:ftplugin_sql_omni_key_left  = '<C-Left>'
 " Hide MyProjects at first
 let g:myprojects_auto_open = 0
 
+" Conque
+"let g:ConqueTerm_CWInsert = 1
+"let g:ConqueTerm_InsertOnEnter = 1
+
 
 " From http://vim.wikia.com/wiki/Capture_ex_command_output
 " Captures ex command and puts it in a new tab
@@ -217,13 +224,45 @@ function! g:ToggleNuMode()
   endif
 endfunc
 
-" function! ShowSynStack()
-"   let s:syn_stack = ''
-"   for id in synstack(line("."), col("."))
-"     let s:syn_stack = s:syn_stack . ' > ' . synIDattr(id, "name")
-"   endfor
-"   echo s:syn_stack
-"   return s:syn_stack
-" endfunction 
-" set statusline+=%{ShowSynStack()}
-" set laststatus=2
+function! SynStack()
+  let s:syn_stack = ''
+  for id in synstack(line("."), col("."))
+    let s:syn_stack = s:syn_stack . ' > ' . synIDattr(id, "name")
+  endfor
+  echo s:syn_stack
+  return s:syn_stack
+endfunction 
+
+command! ShowSynStack call ShowSynStack()
+function! ShowSynStack()
+  let g:old_statusline = &statusline
+  let g:old_laststatus = &laststatus
+  set statusline+=%{SynStack()}
+  set laststatus=2
+endfunction
+
+command! HideSynStack call HideSynStack()
+function! HideSynStack()
+  let &statusline=g:old_statusline
+  let &laststatus=g:old_laststatus
+endfunction
+
+command! -range -nargs=1 SendToCommand <line1>,<line2>call SendToCommand(<q-args>) 
+function! SendToCommand(UserCommand) range
+  let SelectedLines = getline(a:firstline,a:lastline)
+  " Convert to a single string suitable for passing to the command
+  let ScriptInput = join(SelectedLines, "\n") . "\n"
+  " Run the command
+  echo system(a:UserCommand, ScriptInput)
+endfunction
+
+command! -range RunCommand <line1>,<line2>call RunCommand()
+fu! RunCommand() range
+  let RunCommandCursorPos = getpos(".")
+  let SelectedLines = getline(a:firstline,a:lastline)
+  " Convert to a single string suitable for passing to the command
+  let ScriptInput = join(SelectedLines, " ") . "\n"
+  echo system(ScriptInput)
+  call setpos(".", RunCommandCursorPos)
+endfu
+map <unique> <leader>! :RunCommand<CR>
