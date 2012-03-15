@@ -60,7 +60,7 @@
 	url = https://github.com/MarcWeber/vim-addon-mw-utils.git
 [submodule "vim/bundle/snippets.git"]
 	path = vim/bundle/snippets.git
-	url = https://github.com/honza/snipmate-snippets.git
+	url = git@github.com:nerdrew/snipmate-snippets.git
 [submodule "vim/bundle/command-t"]
 	path = vim/bundle/command-t
 	url = https://github.com/wincent/Command-T.git
