@@ -64,8 +64,9 @@ if has('autocmd')
   "autocmd Syntax * syn match Error /\s\+$\| \+\ze\t/
 
   " eruby doesn't correctly indent javascript w/o this
-  autocmd BufRead,BufNewFile *.erb set filetype=javascript
-  autocmd BufRead,BufNewFile *.erb set filetype=eruby.html
+  autocmd BufRead,BufNewFile *.html.erb set filetype=javascript
+  autocmd BufRead,BufNewFile *.html.erb set filetype=eruby.html
+  "autocmd BufRead,BufNewFile *.js.erb set filetype=eruby.javascript
 
   autocmd BufRead,BufNewFile *.as set filetype=actionscript
 
@@ -145,6 +146,8 @@ map <leader><space> :nohls<cr>
 map <leader>l :set nolist!<CR>
 map <unique> <leader># :call g:ToggleNuMode()<CR>
 map <unique> <leader>w :set wrap!<CR>
+map <leader>p <Plug>yankstack_substitute_older_paste
+map <leader>P <Plug>yankstack_substitute_newer_paste
 
 "inoremap <C-A> <Home>
 "inoremap <C-E> <End>
