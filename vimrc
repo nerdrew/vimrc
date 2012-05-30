@@ -158,6 +158,9 @@ map <leader>P <Plug>yankstack_substitute_newer_paste
 " Plugin options
 """""""""""""""""""""""""""""""""
 
+"align
+let g:DrChipTopLvlMenu= ""
+
 " command-t
 let g:CommandTMatchWindowReverse=1
 
